@@ -39,13 +39,6 @@ export class AppComponent implements OnInit {
   onDutyEntries: TimelineItem[] = [];
   timeOffEntries: TimelineItem[] = [
     {
-      from: new Date('2025-04-16'),
-      to: new Date('2025-04-20'),
-      text: 'Time Off',
-      state: 'time-off',
-      color: '#059669',
-    },
-    {
       from: new Date('2025-05-31'),
       to: new Date('2025-06-07'),
       text: 'Time Off',
