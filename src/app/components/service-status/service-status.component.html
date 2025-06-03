@@ -1,0 +1,16 @@
+<div class="status-card">
+    <div class="status-indicator" [class]="currentStatus">
+        <div class="pulse"></div>
+    </div>
+    <div class="status-details">
+        <h3>Current Status</h3>
+        <p class="status-text">{{ getStatusText() }}</p>
+        @if (endDate) {
+            <p class="end-date">Until {{ endDate | date : 'mediumDate' }}</p>
+        }
+        <div class="counters">
+            <p class="counter">On Duty Days: {{ onDutyDays }}</p>
+            <p class="counter">Time Off Days: {{ timeOffDays }}</p>
+        </div>
+    </div>
+</div>

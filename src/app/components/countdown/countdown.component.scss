@@ -1,0 +1,21 @@
+
+.countdown {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e5e7eb;
+    margin-bottom: 2rem;
+}
+.days {
+    font-size: 5rem;
+    font-weight: bold;
+    color: #10B981;
+    margin: 1rem 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+.target-date {
+    color: #9CA3AF;
+}
