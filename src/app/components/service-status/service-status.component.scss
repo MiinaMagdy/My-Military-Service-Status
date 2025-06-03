@@ -1,0 +1,89 @@
+.status-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 2rem;
+}
+
+.status-indicator {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+}
+
+.status-indicator.on-duty {
+    background-color: #dc2626;
+}
+
+.status-indicator.time-off {
+    background-color: #10b981;
+}
+
+.pulse {
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+    opacity: 0.6;
+}
+
+@keyframes pulse {
+    0% {
+    transform: scale(1);
+    opacity: 0.6;
+    }
+    70% {
+    transform: scale(1.5);
+    opacity: 0;
+    }
+    100% {
+    transform: scale(1);
+    opacity: 0;
+    }
+}
+
+.on-duty .pulse {
+    background-color: #dc2626;
+}
+
+.time-off .pulse {
+    background-color: #10b981;
+}
+
+.status-details h3 {
+    color: #e5e7eb;
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.status-text {
+    color: #d1d5db;
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.end-date {
+    color: #9ca3af;
+    font-size: 0.875rem;
+    margin: 0.25rem 0 0 0;
+}
+
+.counters {
+    margin-top: 1rem;
+}
+
+.counter {
+    color: #d1d5db;
+    font-size: 1rem;
+    margin: 0.25rem 0;
+}

@@ -1,0 +1,33 @@
+
+:host {
+    // min-height: 100vh;
+    display: block;
+    background: 
+      radial-gradient(circle at 50% 50%, #2d331f 2%, transparent 5%),
+      radial-gradient(circle at 20% 20%, #3a432b 2%, transparent 5%),
+      radial-gradient(circle at 30% 70%, #2f361f 2%, transparent 5%),
+      radial-gradient(circle at 70% 30%, #252a19 2%, transparent 5%),
+      radial-gradient(circle at 80% 80%, #32391e 2%, transparent 5%),
+      #1f2415;
+    background-size: 30px 30px;
+    color: #e5e7eb;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0rem auto;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #e5e7eb;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
