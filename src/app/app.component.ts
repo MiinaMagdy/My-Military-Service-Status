@@ -30,8 +30,8 @@ interface Status {
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  startDate: Date = new Date('2025-04-08');
-  endDate: Date = new Date('2026-06-01');
+  startDate: Date = new Date('2025-04-08 00:00:00');
+  endDate: Date = new Date('2026-06-01 00:00:00');
 
   currentStatus: Status = { state: 'on-duty', onDutyDays: 0, timeOffDays: 0 };
 
@@ -39,8 +39,15 @@ export class AppComponent implements OnInit {
   onDutyEntries: TimelineItem[] = [];
   timeOffEntries: TimelineItem[] = [
     {
-      from: new Date('2025-05-31'),
-      to: new Date('2025-06-07'),
+      from: new Date('2025-05-31 00:00:00'),
+      to: new Date('2025-06-07 00:00:00'),
+      text: 'Time Off',
+      state: 'time-off',
+      color: '#059669',
+    },
+    {
+      from: new Date('2025-07-03 00:00:00'),
+      to: new Date('2025-07-09 00:00:00'),
       text: 'Time Off',
       state: 'time-off',
       color: '#059669',
