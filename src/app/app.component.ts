@@ -52,6 +52,13 @@ export class AppComponent implements OnInit {
       state: 'time-off',
       color: '#059669',
     },
+    {
+      from: new Date('2025-08-03 00:00:00'),
+      to: new Date('2025-08-09 00:00:00'),
+      text: 'Time Off',
+      state: 'time-off',
+      color: '#059669',
+    },
   ];
 
   ngOnInit(): void {
