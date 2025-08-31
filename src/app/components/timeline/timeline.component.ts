@@ -25,8 +25,10 @@ export class TimelineComponent {
   }
 
   numberOfDays(from: Date, to = new Date()) {
+    from.setHours(0, 0, 0, 0);
+    to.setHours(0, 0, 0, 0);
     const diffInMs = to.getTime() - from.getTime();
-    const diffInDays = Math.round(diffInMs / (1000 * 60 * 60 * 24)) + 1;
+    const diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24)) + 1;
     return `${diffInDays} ${diffInDays === 1 ? 'day' : 'days'}`;
   }
 }
