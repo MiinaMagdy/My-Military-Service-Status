@@ -6,7 +6,7 @@
     [onDutyDays]="currentStatus.onDutyDays"
     [timeOffDays]="currentStatus.timeOffDays"
   />
-  <app-countdown />
+  <app-countdown [endDate]="endDate" />
   <app-timeline [items]="historyTimeline" />
 </div>
 

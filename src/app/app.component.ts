@@ -113,14 +113,11 @@ export class AppComponent implements OnInit {
     }
 
     const present = new Date();
+    present.setHours(0, 0, 0, 0);
     const lastFrom = new Date(
       this.historyTimeline[this.historyTimeline.length - 1].to ?? present
     );
-    if (
-      lastFrom.getDate() < present.getDate() ||
-      lastFrom.getMonth() < present.getMonth() ||
-      lastFrom.getFullYear() < present.getFullYear()
-    ) {
+    if (present.getTime() > lastFrom.getTime()) {
       lastFrom.setDate(lastFrom.getDate() + 1);
       this.historyTimeline.push({
         from: lastFrom,

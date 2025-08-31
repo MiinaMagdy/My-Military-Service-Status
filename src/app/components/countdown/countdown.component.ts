@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-countdown',
@@ -8,16 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CountdownComponent implements OnInit {
   daysRemaining: number = 0;
+  @Input() endDate!: Date;
 
   ngOnInit() {
-    this.calculateDaysRemaining();
-    setInterval(() => this.calculateDaysRemaining(), 86400000); // Update daily
+    this.calculateDaysRemaining(this.endDate);
+    setInterval(() => {
+      return this.calculateDaysRemaining(this.endDate);
+    }, 1000 * 60 * 60); // Update daily
   }
 
-  private calculateDaysRemaining(): void {
-    const target = new Date('2026-06-01');
-    const today = new Date();
-    const diffTime = target.getTime() - today.getTime();
+  private calculateDaysRemaining(endTime: Date): void {
+    const diffTime = endTime.getTime() - Date.now();
     this.daysRemaining = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
   }
 }
