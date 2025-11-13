@@ -10,6 +10,17 @@ export interface TimelineItem {
   color?: string;
 }
 
+export class TimeOff implements TimelineItem {
+  from: Date;
+  to?: Date;
+  text: string = 'Time Off';
+  state: MilitaryServiceState = 'time-off';
+  color?: string = '#059669';
+  constructor({ from, to }: { from: Date; to?: Date }) {
+    this.from = from;
+    this.to = to;
+  }
+}
 @Component({
   selector: 'app-timeline',
   standalone: true,
