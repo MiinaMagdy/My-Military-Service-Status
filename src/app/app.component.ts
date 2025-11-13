@@ -4,6 +4,7 @@ import { CountdownComponent } from './components/countdown/countdown.component';
 import {
   TimelineComponent,
   TimelineItem,
+  TimeOff,
 } from './components/timeline/timeline.component';
 import {
   ServiceStatusComponent,
@@ -37,49 +38,35 @@ export class AppComponent implements OnInit {
 
   historyTimeline: TimelineItem[] = [];
   onDutyEntries: TimelineItem[] = [];
-  timeOffEntries: TimelineItem[] = [
-    {
+  timeOffEntries: TimeOff[] = [
+    new TimeOff({
       from: new Date('2025-05-31 00:00:00'),
       to: new Date('2025-06-07 00:00:00'),
-      text: 'Time Off',
-      state: 'time-off',
-      color: '#059669',
-    },
-    {
+    }),
+    new TimeOff({
       from: new Date('2025-07-03 00:00:00'),
       to: new Date('2025-07-09 00:00:00'),
-      text: 'Time Off',
-      state: 'time-off',
-      color: '#059669',
-    },
-    {
+    }),
+    new TimeOff({
       from: new Date('2025-08-03 00:00:00'),
       to: new Date('2025-08-09 00:00:00'),
-      text: 'Time Off',
-      state: 'time-off',
-      color: '#059669',
-    },
-    {
+    }),
+    new TimeOff({
       from: new Date('2025-08-31 00:00:00'),
       to: new Date('2025-09-08 00:00:00'),
-      text: 'Time Off',
-      state: 'time-off',
-      color: '#059669',
-    },
-    {
+    }),
+    new TimeOff({
       from: new Date('2025-09-24 00:00:00'),
       to: new Date('2025-09-30 00:00:00'),
-      text: 'Time Off',
-      state: 'time-off',
-      color: '#059669',
-    },
-    {
+    }),
+    new TimeOff({
       from: new Date('2025-10-19 00:00:00'),
       to: new Date('2025-10-25 00:00:00'),
-      text: 'Time Off',
-      state: 'time-off',
-      color: '#059669',
-    }
+    }),
+    new TimeOff({
+      from: new Date('2025-11-13 00:00:00'),
+      to: new Date('2025-11-19 00:00:00'),
+    }),
   ];
 
   ngOnInit(): void {
