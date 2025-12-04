@@ -67,6 +67,10 @@ export class AppComponent implements OnInit {
       from: new Date('2025-11-13 00:00:00'),
       to: new Date('2025-11-19 00:00:00'),
     }),
+    new TimeOff({
+      from: new Date('2025-12-04 00:00:00'),
+      to: new Date('2025-12-10 00:00:00'),
+    })
   ];
 
   ngOnInit(): void {
