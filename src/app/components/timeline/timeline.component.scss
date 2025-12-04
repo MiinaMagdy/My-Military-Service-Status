@@ -1,7 +1,42 @@
 
+/* 1. The Scroll Container */
+.timeline-scroll-wrapper {
+  max-height: 800px; /* Set your desired fixed height here */
+  overflow-y: auto;  /* Enables vertical scrolling */
+  overflow-x: hidden; /* Prevents horizontal scroll */
+  padding-right: 10px; /* Spacing for the scrollbar */
+  
+  /* Optional: Smooth scrolling */
+  scroll-behavior: smooth; 
+
+  /* 2. Custom Scrollbar Styling (Dark Theme) */
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #32391e transparent;
+
+  /* Chrome, Edge, Safari */
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 0, 0, 0.2);
+    border-radius: 20px;
+    
+    &:hover {
+      background-color: rgba(0, 255, 187, 0.4);
+    }
+  }
+}
+
 .timeline {
     position: relative;
     padding: 2rem 0;
+    min-height: 100%; 
 }
 .timeline-line {
     position: absolute;
@@ -21,7 +56,7 @@
     flex-direction: row-reverse;
 }
 .timeline-content {
-    width: 45%;
+    width: calc(50% - 2.5rem);
     padding: 1rem;
     background: rgba(0, 0, 0, 0.3);
     border-radius: 8px;
