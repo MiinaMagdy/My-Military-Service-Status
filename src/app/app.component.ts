@@ -81,7 +81,7 @@ export class AppComponent implements OnInit {
     }),
     new TimeOff({
       from: new Date('2026-02-10 00:00:00'),
-      to: new Date('2026-02-17 00:00:00'),
+      to: new Date('2026-02-16 00:00:00'),
     }),
   ];
 
