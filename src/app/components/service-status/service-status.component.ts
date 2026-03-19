@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-export type MilitaryServiceState = 'on-duty' | 'time-off';
+export type MilitaryServiceState = 'on-duty' | 'time-off' | 'completed';
 
 @Component({
   selector: 'app-service-status',
@@ -22,6 +22,8 @@ export class ServiceStatusComponent {
         return 'On Duty';
       case 'time-off':
         return 'Time Off';
+      case 'completed':
+        return 'Service Complete! 🎖️';
       default:
         return 'Unknown';
     }
