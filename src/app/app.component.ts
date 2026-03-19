@@ -156,23 +156,25 @@ export class AppComponent implements OnInit {
   getCurrentStatus(): Status {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-    console.log(today);
+
+    const endDateNormalized = new Date(this.endDate);
+    endDateNormalized.setHours(0, 0, 0, 0);
+
+    // Check if service is completed
+    if (today >= endDateNormalized) {
+      const { onDutyDays, timeOffDays } = this.calculateTotalDays(endDateNormalized);
+      return {
+        state: 'completed',
+        onDutyDays,
+        timeOffDays,
+      };
+    }
 
     const currentTimeLine = this.historyTimeline.find(
       (item) => item.from <= today && (!item.to || item.to >= today)
     );
 
-    const { onDutyDays, timeOffDays } = this.historyTimeline.reduce(
-      ({ onDutyDays, timeOffDays }, item) => {
-        if (item.state === 'on-duty') {
-          onDutyDays += this.numberOfDays(item.from, item.to);
-        } else {
-          timeOffDays += this.numberOfDays(item.from, item.to);
-        }
-        return { onDutyDays, timeOffDays };
-      },
-      { onDutyDays: 0, timeOffDays: 0 }
-    );
+    const { onDutyDays, timeOffDays } = this.calculateTotalDays(today);
 
     return {
       state: currentTimeLine?.state ?? 'on-duty',
@@ -182,9 +184,31 @@ export class AppComponent implements OnInit {
     };
   }
 
+  private calculateTotalDays(upToDate: Date): { onDutyDays: number; timeOffDays: number } {
+    return this.historyTimeline.reduce(
+      ({ onDutyDays, timeOffDays }, item) => {
+        // Clamp the 'to' date so we don't count beyond the reference date
+        const itemTo = item.to ? (item.to < upToDate ? item.to : upToDate) : upToDate;
+        const itemFrom = item.from > upToDate ? upToDate : item.from;
+
+        if (itemFrom > itemTo) return { onDutyDays, timeOffDays };
+
+        const days = this.numberOfDays(itemFrom, itemTo);
+        if (item.state === 'on-duty') {
+          onDutyDays += days;
+        } else {
+          timeOffDays += days;
+        }
+        return { onDutyDays, timeOffDays };
+      },
+      { onDutyDays: 0, timeOffDays: 0 }
+    );
+  }
+
   numberOfDays(from: Date, to = new Date()) {
     const diffInMs = to.getTime() - from.getTime();
     const diffInDays = Math.round(diffInMs / (1000 * 60 * 60 * 24)) + 1;
     return diffInDays;
   }
 }
+
