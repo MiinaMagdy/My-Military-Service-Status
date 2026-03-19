@@ -1,12 +1,15 @@
-<div class="status-card">
+<div class="status-card" [class.completed-card]="currentStatus === 'completed'">
     <div class="status-indicator" [class]="currentStatus">
         <div class="pulse"></div>
     </div>
     <div class="status-details">
         <h3>Current Status</h3>
-        <p class="status-text">{{ getStatusText() }}</p>
-        @if (endDate) {
+        <p class="status-text" [class.completed-text]="currentStatus === 'completed'">{{ getStatusText() }}</p>
+        @if (currentStatus !== 'completed' && endDate) {
             <p class="end-date">Until {{ endDate | date : 'mediumDate' }}</p>
+        }
+        @if (currentStatus === 'completed') {
+            <p class="completed-message">Congratulations! You have completed your military service.</p>
         }
         <div class="counters">
             <p class="counter">On Duty Days: {{ onDutyDays }}</p>

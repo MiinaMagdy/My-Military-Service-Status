@@ -1,6 +1,18 @@
-
-<div class="countdown">
-    <h2>Days Remaining</h2>
-    <div class="days">{{ daysRemaining }}</div>
-    <div class="target-date">until June 1st, 2026</div>
+<div class="countdown" [class.completed]="isCompleted">
+    @if (isCompleted) {
+        <canvas #confettiCanvas class="confetti-canvas"></canvas>
+        <div class="celebration-content">
+            <div class="medal-icon">🎖️</div>
+            <h2 class="celebration-title">Service Complete!</h2>
+            <div class="days gold-text">0</div>
+            <div class="completion-message">
+                You have served your country with honor and dedication.
+                <br/>Thank you for your service!
+            </div>
+        </div>
+    } @else {
+        <h2>Days Remaining</h2>
+        <div class="days">{{ daysRemaining }}</div>
+        <div class="target-date">until June 1st, 2026</div>
+    }
 </div>
