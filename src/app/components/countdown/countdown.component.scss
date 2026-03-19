@@ -8,7 +8,79 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
     color: #e5e7eb;
     margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.6s ease;
 }
+
+.countdown.completed {
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    box-shadow:
+        0 4px 30px rgba(212, 175, 55, 0.15),
+        0 0 60px rgba(212, 175, 55, 0.05);
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.4),
+        rgba(212, 175, 55, 0.05),
+        rgba(0, 0, 0, 0.4)
+    );
+    padding: 2rem 1rem;
+    min-height: 220px;
+}
+
+.confetti-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.celebration-content {
+    position: relative;
+    z-index: 2;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.medal-icon {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    animation: medalBounce 1s ease-out;
+    filter: drop-shadow(0 4px 12px rgba(212, 175, 55, 0.5));
+}
+
+.celebration-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+    background: linear-gradient(135deg, #d4af37, #f0d060, #d4af37);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s ease-in-out infinite;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.gold-text {
+    color: #d4af37 !important;
+    text-shadow:
+        0 0 20px rgba(212, 175, 55, 0.4),
+        0 0 40px rgba(212, 175, 55, 0.2);
+}
+
+.completion-message {
+    color: #b8b8b8;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-top: 0.75rem;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 0.6s forwards;
+}
+
 .days {
     font-size: 5rem;
     font-weight: bold;
@@ -16,6 +88,46 @@
     margin: 1rem 0;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
+
 .target-date {
     color: #9CA3AF;
+}
+
+// Keyframe animations
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes medalBounce {
+    0% {
+        transform: scale(0) rotate(-180deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.3) rotate(10deg);
+        opacity: 1;
+    }
+    70% {
+        transform: scale(0.9) rotate(-5deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+@keyframes shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
 }

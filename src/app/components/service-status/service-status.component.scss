@@ -8,6 +8,13 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.1);
     margin-bottom: 2rem;
+    transition: all 0.6s ease;
+}
+
+.completed-card {
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15), 0 0 40px rgba(212, 175, 55, 0.05);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(212, 175, 55, 0.05));
 }
 
 .status-indicator {
@@ -23,6 +30,11 @@
 
 .status-indicator.time-off {
     background-color: #10b981;
+}
+
+.status-indicator.completed {
+    background-color: #d4af37;
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.6);
 }
 
 .pulse {
@@ -59,6 +71,10 @@
     background-color: #10b981;
 }
 
+.completed .pulse {
+    background-color: #d4af37;
+}
+
 .status-details h3 {
     color: #e5e7eb;
     margin: 0 0 0.5rem 0;
@@ -72,10 +88,34 @@
     margin: 0;
 }
 
+.completed-text {
+    background: linear-gradient(135deg, #d4af37, #f0d060, #d4af37);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s ease-in-out infinite;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+@keyframes shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
 .end-date {
     color: #9ca3af;
     font-size: 0.875rem;
     margin: 0.25rem 0 0 0;
+}
+
+.completed-message {
+    color: #d4af37;
+    font-size: 0.9rem;
+    margin: 0.5rem 0 0 0;
+    opacity: 0.85;
+    font-style: italic;
 }
 
 .counters {
@@ -87,3 +127,4 @@
     font-size: 1rem;
     margin: 0.25rem 0;
 }
+
