@@ -90,7 +90,11 @@ export class AppComponent implements OnInit {
     new TimeOff({
       from: new Date('2026-03-17 00:00:00'),
       to: new Date('2026-03-20 00:00:00'),
-    })
+    }),
+    new TimeOff({
+      from: new Date('2026-04-04 00:00:00'),
+      to: new Date('2026-04-13 00:00:00'),
+    }),
   ];
 
   ngOnInit(): void {
